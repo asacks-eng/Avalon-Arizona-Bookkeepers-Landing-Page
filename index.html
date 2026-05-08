@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avalon Insurance Group | A Resource for Your SMB Clients</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0c1c30;
+    --navy-mid: #163147;
+    --gold: #c9973a;
+    --gold-light: #e8b85a;
+    --gold-pale: #f5e8cc;
+    --cream: #faf8f4;
+    --white: #ffffff;
+    --gray: #64748b;
+    --light: #f1ede4;
+    --text: #1a2535;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    background: rgba(12, 28, 48, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,151,58,0.3);
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.3px;
+    line-height: 1;
+  }
+
+  .logo-tagline {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  .header-cta {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 10px 22px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 1px;
+    transition: background 0.2s;
+  }
+
+  .header-cta:hover { background: var(--gold-light); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 72px;
+  }
+
+  .hero-left {
+    background: var(--navy);
+    padding: 48px 52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left::before {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(201,151,58,0.15) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 5.5vw, 72px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 28px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-body {
+    font-size: 19px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.75;
+    margin-bottom: 16px;
+    max-width: 500px;
+  }
+
+  .hero-note {
+    font-size: 14px;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 40px;
+    font-style: italic;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn-gold {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 14px 30px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 1px;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-ghost {
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.85);
+    padding: 14px 30px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 1px;
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .hero-right::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(12,28,48,0.35) 0%, transparent 50%);
+  }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    background: var(--gold);
+    padding: 22px 40px;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy-mid);
+  }
+
+  /* ── SECTION BASE ── */
+  .section {
+    padding: 88px 40px;
+  }
+
+  .section-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 3.5vw, 46px);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .section-body {
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--gray);
+    max-width: 700px;
+    line-height: 1.8;
+    margin-bottom: 52px;
+  }
+
+  /* ── SERVICES SECTION ── */
+  .services { background: var(--white); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid #e5e0d5;
+  }
+
+  .service-card {
+    padding: 40px;
+    border-right: 1px solid #e5e0d5;
+    border-bottom: 1px solid #e5e0d5;
+    transition: background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card:nth-child(2n) { border-right: none; }
+  .service-card:nth-last-child(-n+2) { border-bottom: none; }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--gold);
+    transition: height 0.3s;
+  }
+
+  .service-card:hover::before { height: 100%; }
+  .service-card:hover { background: #fdfaf5; }
+
+  .service-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--gold-pale);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    font-size: 20px;
+  }
+
+  .service-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .service-card p {
+    font-size: 15px;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  /* ── PHOTO SPLIT ── */
+  .photo-split {
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 520px;
+  }
+
+  .photo-split-img {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .photo-split-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.8);
+  }
+
+  .photo-split-content {
+    padding: 72px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .photo-split-content .section-title { color: var(--white); }
+  .photo-split-content .section-body { color: rgba(255,255,255,0.65); }
+
+  .checks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .checks li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    font-size: 15px;
+    color: rgba(255,255,255,0.80);
+    line-height: 1.6;
+  }
+
+  .check-icon {
+    width: 22px;
+    height: 22px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-size: 11px;
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  /* ── COVERAGE ── */
+  .coverage { background: var(--light); }
+
+  .coverage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+    gap: 12px;
+  }
+
+  .coverage-tag {
+    background: var(--white);
+    border: 1px solid rgba(201,151,58,0.35);
+    padding: 14px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    text-align: center;
+    border-radius: 1px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .coverage-tag:hover {
+    background: var(--gold-pale);
+    border-color: var(--gold);
+  }
+
+  /* ── PHOTO TESTIMONIAL BAR ── */
+  .photo-bar {
+    height: 340px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .photo-bar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    filter: brightness(0.45);
+  }
+
+  .photo-bar-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    text-align: center;
+  }
+
+  .photo-bar-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(24px, 3vw, 40px);
+    font-style: italic;
+    font-weight: 600;
+    color: var(--white);
+    max-width: 800px;
+    line-height: 1.4;
+  }
+
+  .photo-bar-text span {
+    color: var(--gold);
+  }
+
+  /* ── CONTACT ── */
+  .contact { background: var(--navy); }
+  .contact .section-title { color: var(--white); }
+  .contact .section-body { color: rgba(255,255,255,0.60); }
+
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .contact-left { padding-top: 8px; }
+
+  .contact-info-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 24px;
+  }
+
+  .contact-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  .contact-info-item p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.65;
+  }
+
+  .contact-form {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,151,58,0.2);
+    padding: 40px;
+    border-radius: 2px;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.full { grid-column: 1 / -1; }
+
+  .form-group label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--white);
+    padding: 12px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    border-radius: 1px;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+
+  .form-group input:focus,
+  .form-group textarea:focus { border-color: var(--gold); }
+
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  .form-submit {
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    padding: 15px 28px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    border-radius: 1px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 4px;
+    transition: background 0.2s;
+  }
+
+  .form-submit:hover { background: var(--gold-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #070f1c;
+    color: rgba(255,255,255,0.38);
+    text-align: center;
+    padding: 24px 40px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  footer span { color: var(--gold); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-left > * {
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.22s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.34s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.44s; }
+  .hero-left > *:nth-child(5) { animation-delay: 0.54s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 860px) {
+    header { padding: 14px 20px; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { height: 280px; }
+    .hero-left { padding: 60px 28px; }
+    .stats-bar { gap: 32px; padding: 20px; }
+    .section { padding: 64px 24px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { border-right: none; }
+    .service-card:nth-last-child(-n+2) { border-bottom: 1px solid #e5e0d5; }
+    .service-card:last-child { border-bottom: none; }
+    .photo-split { grid-template-columns: 1fr; }
+    .photo-split-img { height: 260px; }
+    .photo-split-content { padding: 48px 28px; }
+    .contact-layout { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-group.full { grid-column: 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <span class="logo-name">Avalon Insurance Group</span>
+    <span class="logo-tagline">Phoenix, Arizona · Commercial Insurance</span>
+  </div>
+  <a href="#contact" class="header-cta">Refer a Client</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">For Accounting, Bookkeeping & Payroll Firms</p>
+    <h1>Helping You<br><em>Help Your</em><br>Clientele</h1>
+    <p class="hero-body">We've brought new carriers with aggressive pricing to Arizona — Workers' Comp premiums in particular have dropped dramatically. Your clients deserve to know what's available now.</p>
+    <p class="hero-note">Independent agency · A-rated carriers · 24-hour quote turnaround</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-gold">Refer a Client →</a>
+      <a href="#services" class="btn-ghost">How It Works</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=900&auto=format&fit=crop&q=80" alt="Business professionals in office meeting" loading="eager">
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat">
+    <span class="stat-number">A-Rated</span>
+    <span class="stat-label">Carriers Only</span>
+  </div>
+  <div class="stat">
+    <span class="stat-number">24 hrs</span>
+    <span class="stat-label">Quote Turnaround</span>
+  </div>
+  <div class="stat">
+    <span class="stat-number">Decades</span>
+    <span class="stat-label">of Experience</span>
+  </div>
+  <div class="stat">
+    <span class="stat-number">Zero</span>
+    <span class="stat-label">Obligation Reviews</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section services" id="services">
+  <div class="section-inner">
+    <p class="section-label">Why Partner With Avalon</p>
+    <h2 class="section-title">A Reliable Insurance Resource<br>for Your SMB Clients</h2>
+    <p class="section-body">Accounting, bookkeeping, and payroll firms are often the first to hear when a client is frustrated with insurance costs, coverage gaps, audits, or slow service. Avalon gives your firm an experienced, responsive resource to point them to.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🤝</div>
+        <h3>Improves Client Satisfaction</h3>
+        <p>Clients appreciate when your firm connects them with practical help rather than leaving them to navigate insurance problems on their own.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔒</div>
+        <h3>Strengthens Client Retention</h3>
+        <p>When your firm helps solve real business problems beyond the numbers, the relationship becomes more valuable and harder to replace.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>Fast, Personal Service</h3>
+        <p>Not a call center. Not a queue. Your clients get direct access to an experienced insurance professional who responds same day.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <h3>No Work for Your Firm</h3>
+        <p>Simply make the introduction. Avalon handles everything from there — reviews, quotes, follow-up, and ongoing service.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO SPLIT -->
+<div class="photo-split">
+  <div class="photo-split-img">
+    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&auto=format&fit=crop&q=80" alt="Small business owner reviewing documents">
+  </div>
+  <div class="photo-split-content">
+    <p class="section-label">What We Deliver</p>
+    <h2 class="section-title" style="color:white;">Avalon Brings Personalized Service to Address:</h2>
+    <ul class="checks">
+      <li><span class="check-icon">✓</span>The most competitive premiums with A-rated carriers across Arizona.</li>
+      <li><span class="check-icon">✓</span>Thorough policy reviews to address coverage gaps and manage liability exposure.</li>
+      <li><span class="check-icon">✓</span>Veteran expertise and decades of commercial insurance experience.</li>
+      <li><span class="check-icon">✓</span>Help with certificates, audits, classifications, and renewal coordination.</li>
+      <li><span class="check-icon">✓</span>Workers' Comp premiums have dropped dramatically — we'll show them exactly where they stand.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- COVERAGE -->
+<section class="section coverage">
+  <div class="section-inner">
+    <p class="section-label">Coverage Areas</p>
+    <h2 class="section-title">Some of Our Coverages —<br>and There Are Many More</h2>
+    <p class="section-body">We work with small and mid-sized businesses across all core commercial insurance needs. A Declaration Page is all we need to run a full no-obligation comparison within 24 hours.</p>
+    <div class="coverage-grid">
+      <div class="coverage-tag">Workers' Compensation</div>
+      <div class="coverage-tag">General Liability</div>
+      <div class="coverage-tag">Commercial Auto</div>
+      <div class="coverage-tag">Business Owner Policy</div>
+      <div class="coverage-tag">Professional Liability</div>
+      <div class="coverage-tag">Commercial Property</div>
+      <div class="coverage-tag">Inland Marine</div>
+      <div class="coverage-tag">Builders Risk</div>
+      <div class="coverage-tag">Tools & Equipment</div>
+      <div class="coverage-tag">Umbrella / Excess</div>
+      <div class="coverage-tag">Personal Lines</div>
+      <div class="coverage-tag">Certificates of Insurance</div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO BAR -->
+<div class="photo-bar">
+  <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1400&auto=format&fit=crop&q=80" alt="Professional business environment">
+  <div class="photo-bar-overlay">
+    <p class="photo-bar-text">"Even businesses that have done everything right are often <span>surprised by what's available</span> in today's market."</p>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="section-inner">
+    <div class="contact-layout">
+      <div class="contact-left">
+        <p class="section-label" style="color:var(--gold);">Get Started</p>
+        <h2 class="section-title">Have a Client Who Could Use a Better Insurance Review?</h2>
+        <p class="section-body">If one of your clients is overpaying, unhappy with service, dealing with Workers' Comp issues, or simply unsure whether their coverage is adequate — Avalon can take a look.</p>
+        <div class="contact-info-item">
+          <div class="contact-dot"></div>
+          <p>We review and quote even if renewal is months away — no pressure, just so your client knows where they stand when the time comes.</p>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-dot"></div>
+          <p>A Declaration Page is all we need to give your client something concrete within 24 hours.</p>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-dot"></div>
+          <p>You make the introduction. We handle everything from there.</p>
+        </div>
+      </div>
+      <div>
+        <div class="contact-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label>Firm Name</label>
+              <input type="text" placeholder="Your firm">
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="you@firm.com">
+            </div>
+            <div class="form-group">
+              <label>Phone</label>
+              <input type="tel" placeholder="Best number">
+            </div>
+            <div class="form-group full">
+              <label>Client Situation</label>
+              <textarea placeholder="Briefly describe your client's insurance need, type of business, or any issues they're dealing with."></textarea>
+            </div>
+            <div class="form-group full">
+              <button class="form-submit" onclick="handleSubmit(event)">Request a Follow-Up →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© Avalon Insurance Group &nbsp;·&nbsp; <span>Phoenix, Arizona</span> &nbsp;·&nbsp; Independent Commercial Insurance Agency</p>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target;
+    btn.textContent = '✓ Received — We\'ll be in touch shortly.';
+    btn.style.background = '#2d6a4f';
+    btn.style.color = '#fff';
+    btn.disabled = true;
+  }
+</script>
+
+</body>
+</html>
