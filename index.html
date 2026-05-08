@@ -819,11 +819,28 @@
 <script>
   function handleSubmit(e) {
     e.preventDefault();
-    const btn = e.target;
-    btn.textContent = '✓ Received — We\'ll be in touch shortly.';
-    btn.style.background = '#2d6a4f';
-    btn.style.color = '#fff';
-    btn.disabled = true;
+    const form = e.target.closest('form');
+    const btn = form.querySelector('.form-submit');
+    const data = new FormData(form);
+
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(response => {
+      if (response.ok) {
+        btn.textContent = '✓ Received — We\'ll be in touch shortly.';
+        btn.style.background = '#2d6a4f';
+        btn.style.color = '#fff';
+        btn.disabled = true;
+      } else {
+        btn.textContent = 'Something went wrong — please try again.';
+      }
+    })
+    .catch(error => {
+      btn.textContent = 'Something went wrong — please try again.';
+    });
   }
 </script>
 
